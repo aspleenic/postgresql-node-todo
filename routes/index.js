@@ -6,7 +6,7 @@ var connectionString = require(path.join(__dirname, '../','configs/','dbinfo'));
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.sendFile(path.join(__dirname, '../views', 'index.html'));
 });
 
 router.get('/api/v1/todos', function(req, res) {
