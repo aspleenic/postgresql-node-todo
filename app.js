@@ -6,9 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var router = express.Router();
-var routes = require('./routes/index');
-var users = require('./routes/users');
-//var gettodos = require('./APIs/todo/gettodos.js');
+var routes = require('./server/routes/index');
 
 var app = express();
 
@@ -22,22 +20,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-//app.use(express.static(path.join(__dirname, 'public')));
-app.use('/static', express.static('public'));
 
-
-/*require('./APIs/todo/addtodo')(router);
-require('./APIs/todo/deletetodo')(router);
-require('./APIs/todo/gettodos.js')(router);
-require('./APIs/todo/updatetodo')(router);*/
+app.use('/static', express.static('./client/public'));
 
 app.use('/', routes);
-app.use('/users', users);
-
-/*********APIs*********/
-//app.use('/api/v1/todos', gettodos);
-require('./APIs/todo/gettodos.js')(router);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

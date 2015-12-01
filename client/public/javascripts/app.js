@@ -12,7 +12,6 @@ angular.module('nodeTodo', [])
         $http.get('/api/v1/todos')
             .success(function(data) {
                 $scope.todoData = data;
-                console.log(data);
             })
             .error(function(error) {
                 console.log('Error: ' + error);
@@ -24,7 +23,6 @@ angular.module('nodeTodo', [])
                 .success(function(data) {
                     $scope.formData = {};
                     $scope.todoData = data;
-                    console.log(data);
                 })
                 .error(function(error) {
                     console.log('Error: ' + error);
@@ -36,7 +34,6 @@ angular.module('nodeTodo', [])
             $http.delete('/api/v1/todos/' + todoID)
                 .success(function(data) {
                     $scope.todoData = data;
-                    console.log(data);
                 })
                 .error(function(data) {
                     console.log('Error: ' + data);
